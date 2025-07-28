@@ -10,7 +10,7 @@
 * Data Link layer - frames
 * Physical layer -  Bits 0 or 1
 
-## TCP (Transmission Control Protocal)
+## TCP (Transmission Control Protocol)
 ### Characteristics
 * Reliable
 * Ordered 
@@ -38,7 +38,7 @@ Client                        Server
 
 ## HTTP 
 
-HTTP works on the application layer and relies TCP in the Transport layer.
+HTTP works on the application layer and relies on TCP in the Transport layer.
 
 ```
 HTTP VERSION
@@ -47,7 +47,7 @@ HTTP VERSION
 ####  Problems with HTTP 1
 * Everytime data needed to be transferred 3 way sync needed to be performed
 
-#### HTTP 1.1 solved this problem where TCP handshake when done once data can be transferred without needed to perform the handshake again.
+#### HTTP 1.1 solved this problem where TCP handshake when done once data can be transferred without needing to perform the handshake again.
 
 #### HTTP 2 used newer concepts of multiplexing
 #### HTTP 3 uses a new concept called QUIC which uses UDP underneath
@@ -64,7 +64,7 @@ HTTP VERSION
     1. Hosts in realtime meeting are connected in UDP
     2. But other muted participants are connected in TCP
 
-ZOOM has it's own custom protocols too.That is why it has proprietary software.The streaming chances according to device size as well.
+ZOOM has it's own custom protocols too.That is why it has proprietary software.The streaming chances according to device size as well.(Proprietary software, also known as closed-source software, is software that is owned by a specific individual or company, and its source code is not publicly available)
 
 ## How does the internet actually work ?
 
@@ -103,6 +103,38 @@ User Device connects to Website
 6. Resolver queries the Authoritative DNS Server.
 7. Authoritative DNS Server returns the IP address.
 8. Resolver provides the IP to the user's device, which then connects to the website.
+
+## Which protocol does DNS use?
+### Ans : DNS uses UDP beacuse the payload is small(chaicode.com) and speed is important.
+
+# Command for DNS resolution
+
+    dig chaicode.com
+     <<>> DiG 9.18.30-0ubuntu0.22.04.2-Ubuntu <<>> chaicode.com
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53236
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+    ;; OPT PSEUDOSECTION:
+    ; EDNS: version: 0, flags:; udp: 512
+    ;; QUESTION SECTION:
+    ;chaicode.com.                  IN      A
+
+    ;; ANSWER SECTION:
+    chaicode.com.           300     IN      A       76.76.21.21
+
+    ;; Query time: 124 msec
+    ;; SERVER: 10.255.255.254#53(10.255.255.254) (UDP)
+    ;; WHEN: Mon Jul 28 13:02:54 IST 2025
+    ;; MSG SIZE  rcvd: 57
+
+#### Note : DNS resolution takes time, so ,often is cache.
+
+
+
+
+
 
 
 
