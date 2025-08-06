@@ -67,6 +67,7 @@
 
 # Javascript Delete method working
 
+
 ```
 javascript
 // --- 1. Deleting an object property (returns true) ---
@@ -99,3 +100,88 @@ myFunction();                        // Expected Output: Hello! (The function re
 // (Example of a built-in non-configurable property)
 console.log(delete Math.PI);         // Expected Output: false
 ```
+
+## Objects in js
+An object in JavaScript is a way to group related data and behaviors together. Think of it like a box that holds different things about something—like a person.
+```
+const person = {
+    name : "Anushka",
+    age : 22,
+    address : {
+        street : "57 B.K street",
+        apartment : "Prayag Apartment",
+        landmark : "Sanghati Club"
+    },
+    gender : "F",
+    single : false,
+    hobbies : ["Painting","Music","Binging"]
+}
+```
+
+In your example, the person object stores details about someone:
+
+* Properties: These are key-value pairs. For example, name: "Anushka" means the person's name is Anushka.
+* Nested Objects: The address property is itself an object, holding more details like street and apartment.
+* Arrays: The hobbies property is an array, listing several hobbies.
+* Values: Properties can hold strings, numbers, booleans, arrays, or even other objects.
+* Why use objects?
+* Objects help organize code, making it easier to manage and understand complex data.
+
+Example:
+
+Here, remote is an object describing a tv remote, similar to how we describes a remote.
+
+```
+// real life object example remote
+const remote = {
+    color : 'black',
+    brand : 'xyz',
+    dimensions : {height : 1,width:1},
+    volumeUp : function (){
+
+    },
+    turnOff : function(){
+
+    }
+}
+
+```
+## Playing with memory
+
+This code demonstrates the difference between primitive values and objects in JavaScript when assigning variables.
+
+Primitives (e.g., strings, numbers)
+
+```
+let fname = 'Anu'
+let fname2 = fname
+```
+
+fname2 gets a copy of the value in fname.
+Changing fname2 (fname2 = 'Ankit') does not affect fname.
+Output:
+console.log(fname2); // Ankit
+console.log(fname); // Anu
+Key point: Primitives are copied by value.
+
+Objects
+```
+let p2 = person
+p2.name = 'Ankit'
+console.log(person.name); // Ankit
+```
+p2 gets a reference to the same object as person.
+Changing p2.name also changes person.name, because both point to the same object in memory.
+Key point: Objects are copied by reference.
+
+Gotcha
+If you want to copy an object without affecting the original, use methods like Object.assign() or the spread operator:
+```
+let p2 = { ...person }
+```
+
+Summary:
+
+Primitives (string, number, boolean, etc.) are copied by value.
+Objects (arrays, functions, objects) are copied by reference.
+This affects how changes to variables impact the original data.
